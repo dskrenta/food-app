@@ -6,6 +6,8 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
+import { Font, AppLoading } from 'expo';
+import { FontAwesome } from '@expo/vector-icons';
 
 import Restaurants from './App/components/Restaurants/Restaurants';
 import Restaurant from './App/components/Restaurant/Restaurant';
