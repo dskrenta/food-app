@@ -47,7 +47,7 @@ const Restaurants = () => (
 Restaurants.navigationOptions = {
   header: (
     <Header
-      centerComponent={{ text: 'Tobiko', style: { color: '#fff' } }}
+      centerComponent={{ text: 'Tobiko', style: { color: '#fff', 'fontSize': 18 } }}
       rightComponent={{ icon: 'my-location', color: '#fff' }}
     />
   )
