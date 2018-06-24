@@ -1,3 +1,8 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('Tobiko', () => App);
+
+import App from './components/App/App';
+
+AppRegistry.registerComponent(
+  'Tobiko', 
+  () => App
+);
