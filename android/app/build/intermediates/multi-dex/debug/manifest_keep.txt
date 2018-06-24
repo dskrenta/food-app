@@ -1,0 +1,3 @@
+# Referenced at /home/bryce/repos/food-app/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:28
+-keep class com.tobiko.tobiko.MainApplication { <init>(...); }
+
