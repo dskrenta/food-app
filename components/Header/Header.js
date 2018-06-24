@@ -1,8 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Header as RNEHeader } from 'react-native-elements';
 
 const Header = () => (
-  <Text>Header</Text>
+  <RNEHeader
+    centerComponent={{ text: 'Tobiko', style: { color: '#fff', 'fontSize': 18 } }}
+    rightComponent={{ icon: 'my-location', color: '#fff' }}
+  />
 );
 
 export default Header;
