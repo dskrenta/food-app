@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header as RNEHeader } from 'react-native-elements';
+import { Header as RNEHeader, Icon } from 'react-native-elements';
 
-const Header = () => (
+const Header = ({ navigation }) => (
   <RNEHeader
     centerComponent={{ text: 'Tobiko', style: { color: '#fff', 'fontSize': 18 } }}
-    rightComponent={{ icon: 'my-location', color: '#fff' }}
+    rightComponent={<Icon name="my-location" onPress={() => navigation.navigate('Location')} />}
   />
 );
 

@@ -1,10 +1,19 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
+import { ButtonGroup } from 'react-native-elements';
 
 import Header from '../Header/Header';
 
 const Restaurants = () => (
-  <Text>Restaurants</Text>
+  <View>
+    <Text>Restaurants</Text>
+    <ButtonGroup
+      onPress={this.updateIndex}
+      selectedIndex={0}
+      buttons={['Better', 'Closer']}
+      containerStyle={{height: 25}}
+    />
+  </View>
 );
 
 Restaurants.navigationOptions = {
