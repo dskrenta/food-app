@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-ProtoRPC/src/objective-c/ProtoRPC/ProtoRPC.m \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Target\ Support\ Files/gRPC-ProtoRPC/gRPC-ProtoRPC-prefix.pch \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-ProtoRPC/src/objective-c/ProtoRPC/ProtoRPC.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Public/gRPC/GRPCClient/GRPCCall.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Public/gRPC-RxLibrary/RxLibrary/GRXWriter.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Public/gRPC-RxLibrary/RxLibrary/GRXWriteable.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-ProtoRPC/src/objective-c/ProtoRPC/ProtoMethod.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBProtocolBuffers.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBBootstrap.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBArray.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBRuntimeTypes.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBCodedInputStream.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBCodedOutputStream.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBWireFormat.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBDescriptor.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBDictionary.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBExtensionRegistry.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBMessage.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBRootObject.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBUnknownField.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBUnknownFieldSet.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBUtilities.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/GPBWellKnownTypes.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Any.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Duration.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Timestamp.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Api.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Empty.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/FieldMask.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/SourceContext.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Struct.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Type.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/Protobuf/Wrappers.pbobjc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Public/gRPC-RxLibrary/RxLibrary/GRXWriter+Transformations.h

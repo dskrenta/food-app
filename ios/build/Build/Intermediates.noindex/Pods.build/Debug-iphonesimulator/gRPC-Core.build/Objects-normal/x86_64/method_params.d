@@ -1,0 +1,41 @@
+dependencies: \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/ext/filters/client_channel/method_params.cc \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Target\ Support\ Files/gRPC-Core/gRPC-Core-prefix.pch \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/port_platform.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/port_platform.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/alloc.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/log.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/string_util.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/ext/filters/client_channel/method_params.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/channel/status_util.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/status.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/status.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gprpp/ref_counted.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/sync.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/gpr_types.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync_generic.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/atm.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/atm_gcc_atomic.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/sync_posix.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/debug/trace.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/atm.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gprpp/abstract.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gprpp/debug_location.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gprpp/memory.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gprpp/ref_counted_ptr.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/iomgr/exec_ctx.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/cpu.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gpr/tls.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gpr/tls_pthread.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/iomgr/closure.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gpr/mpscq.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/iomgr/error.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/slice.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/slice.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/impl/codegen/gpr_slice.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/Headers/Private/gRPC-Core/grpc/support/time.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/profiling/timers.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/json/json.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/json/json_common.h \
+  /Users/davidskrenta/repos/food-app/ios/Pods/gRPC-Core/src/core/lib/gpr/string.h

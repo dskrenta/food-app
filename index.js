@@ -1,3 +1,11 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('foodapp', () => App);
+
+import App from './components/App/App';
+
+// Dislable YellowBox warnings
+console.disableYellowBox = true;
+
+AppRegistry.registerComponent(
+  'Tobiko', 
+  () => App
+);
