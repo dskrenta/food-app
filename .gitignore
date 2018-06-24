@@ -62,3 +62,7 @@ typings/
 
 # Expo configuration file
 .expo
+
+# Firebase service files
+GoogleService-info.plist
+google-services.json
