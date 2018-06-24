@@ -21,9 +21,19 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
+    "apollo-link": "^1.2.2",
+    "apollo-link-error": "^1.1.0",
+    "apollo-link-http": "^1.5.4",
     "fbjs": "^0.8.16",
+    "graphql": "^0.13.2",
     "react": "^16.3.1",
+    "react-apollo": "^2.1.6",
     "react-native": "^0.55.3",
-    "react-native-firebase": "^4.1.0"
+    "react-native-elements": "^0.19.1",
+    "react-native-firebase": "^4.1.0",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.5.2"
   }
 }
