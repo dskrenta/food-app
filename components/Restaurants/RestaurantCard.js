@@ -9,13 +9,13 @@ const RestaurantCard = ({ item, height }) => (
     {'image' in item && <Image style={styles.image} source={{uri: item.image}} />}
     <View style={styles.infoContain}>
       {'title' in item && <Text style={styles.title}>{item.title}</Text>}
+      {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
       {'address' in item && 
         <View style={[styles.detailContain]}>
           <Icon name="place" color="#067" size={20} />
           <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
         </View>
       }
-      {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
       {'references' in item &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
   },
   feature: {
     paddingLeft: 5,
-    paddingTop: 1
+    paddingTop: 1,
+    color: '#333'
   }
 });
 
