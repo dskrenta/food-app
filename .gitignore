@@ -66,3 +66,6 @@ typings/
 # Firebase service files
 GoogleService-info.plist
 google-services.json
+
+# IOS build
+ios/build
