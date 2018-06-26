@@ -42,7 +42,7 @@ class AppProvider extends React.Component {
       });
     },
     closer: () => {
-
+      
     },
     better: () => {
 
