@@ -16,7 +16,6 @@ export const AppContext = React.createContext();
 export class AppProvider extends React.Component {
   state = {
     // state
-    address: '',
     location: {
       lat: null,
       lon: null
@@ -37,20 +36,35 @@ export class AppProvider extends React.Component {
     },
 
     // mutators
-    setAddress: (address) => {
-      this.setState({ 
-        address 
-      });
-    },
     setReservation: (reservation) => {
       this.setState({ 
         reservation 
       });
     },
-    setLocation: (location) => {
-      this.setState({
-        location
-      });
+    setLocation: (location = null) => {
+      if (location) {
+        this.setState({
+          location
+        });
+      }
+      else {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.setState({
+              location: {
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+              }
+            })
+          },
+          (error) => {
+            console.error(error);
+          },
+          {
+            enableHighAccuracy: true
+          }
+        );
+      }
     },
     closer: () => {
       if (this.state.closer >= MAX_CLOSER) {
