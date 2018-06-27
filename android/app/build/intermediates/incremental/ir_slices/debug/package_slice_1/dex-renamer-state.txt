@@ -1,0 +1,4 @@
+#Mon Jun 25 20:04:12 PDT 2018
+base.0=/home/bryce/repos/food-app/android/app/build/intermediates/transforms/dexMerger/debug/1
+path.0=classes.dex
+renamed.0=classes.dex
