@@ -88,7 +88,6 @@ export class AppProvider extends React.Component {
         return;
       }
   
-  
       if (this.state.closer > 0) {
         this.setState({
           closer: 0,
