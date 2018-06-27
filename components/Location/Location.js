@@ -5,4 +5,8 @@ const Location = () => (
   <Text>Location</Text>
 );
 
+Location.navigationOptions = {
+  headerTitle: 'Location'
+}
+
 export default Location;

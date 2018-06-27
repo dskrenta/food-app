@@ -6,6 +6,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
 import { createStackNavigator } from 'react-navigation';
+import { Platform } from 'react-native';
 
 import Restaurants from '../Restaurants/Restaurants';
 import Restaurant from '../Restaurant/Restaurant';
@@ -43,6 +44,10 @@ const AppStackNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Restaurants',
+    navigationOptions: {
+      headerStyle: { backgroundColor: '#067', height: Platform.OS === 'ios' ? 70 : 50 },
+      headerTintColor: '#fff',
+    }
   }
 );
 

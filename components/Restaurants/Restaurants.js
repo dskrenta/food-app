@@ -1,5 +1,14 @@
 import React from 'react';
-import { View, Text, Dimensions, Platform, Animated } from 'react-native';
+import { 
+  View, 
+  Text, 
+  Dimensions, 
+  Platform, 
+  Animated, 
+  TextInput, 
+  ScrollView,
+  TouchableHighlight
+} from 'react-native';
 import CarouselPager from 'react-native-carousel-pager';
 import { Button, SearchBar } from 'react-native-elements'
 
@@ -41,8 +50,7 @@ const sampleData = [
     distance: 2.1,
     rating: 5,
     // description: 'Best sushi in Newport Beach with chirashis loaded with a great selection of fish'
-  },
-
+  }
 ]
 
 const colors = {
@@ -66,16 +74,17 @@ const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
 
 class Restaurants extends React.Component {
+  state = {
+    drawerOpen: true,
+    closer: 0,
+    better: 0,
+    searchValue: null,
+    focused: false
+  }
+  
   constructor(props) {
     super(props);
-
     this.Animation = new Animated.Value(0);
-
-    this.state = {
-      drawerOpen: true,
-      closer: 0,
-      better: 0
-    }
   }
 
   toggleDrawer = () => {
@@ -101,10 +110,15 @@ class Restaurants extends React.Component {
     }
   }
 
+  onChangeText = (value) => {
+    this.setState({searchValue: value});
+  }
+
   render() {
+    const { navigation } = this.props;
     const offset = this.Animation.interpolate({
       inputRange: [0,1],
-      outputRange: [height - 80, 70]
+      outputRange: [height - 100, 50]
     });
 
     return (
@@ -112,7 +126,14 @@ class Restaurants extends React.Component {
         <View style={{width: '100%', height: cardHeight, paddingVertical: 10}}>
           <CarouselPager ref={ref => this.carousel = ref} pageSpacing={5}>
             {sampleData.map((item, index) => (
-              <RestaurantCard item={item} key={index} height={cardHeight} />
+              <TouchableHighlight 
+                key={index} 
+                underlayColor="rgba(0,0,0,0)" 
+                onPress={() => {navigation.navigate('Restaurant')}}
+                style={{flex: 1}}
+              >
+                <RestaurantCard item={item} key={index} height={cardHeight} />
+              </TouchableHighlight>
             ))}
           </CarouselPager>
         </View>
@@ -143,19 +164,28 @@ class Restaurants extends React.Component {
               backgroundColor={colors.better[this.state.better]}
             />
           </View>
-          <View style={styles.searchContain}>
-            <SearchBar 
+          <ScrollView style={styles.searchContain} keyboardShouldPersistTaps="handled">
+            {/*<SearchBar 
               // lightTheme
               platform="ios"
               placeholder="What are you looking for?"
               containerStyle={styles.searchBox}
               inputContainerStyle={{backgroundColor: 'green'}}
+            />*/}
+            <TextInput
+              style={[styles.searchBox, this.state.focused ? {borderColor: '#067'} : {borderColor: '#aaa'}]}
+              placeholder="What are you looking for?"
+              value={this.state.searchValue}
+              onChangeText={this.onChangeText}
+              onFocus={() => this.setState({focused: true})}
+              onEndEditing={() => this.setState({focused: false})}
+              underlineColorAndroid='rgba(0,0,0,0)'
             />
-          </View>
+          </ScrollView>
           <View style={styles.bottomButtons}>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Veg"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
@@ -164,7 +194,7 @@ class Restaurants extends React.Component {
             </View>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Meat"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
@@ -173,7 +203,7 @@ class Restaurants extends React.Component {
             </View>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Wine"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
@@ -182,7 +212,7 @@ class Restaurants extends React.Component {
             </View>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Cocktails"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
@@ -191,7 +221,7 @@ class Restaurants extends React.Component {
             </View>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Kids"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
@@ -200,13 +230,19 @@ class Restaurants extends React.Component {
             </View>
             <View style={styles.buttonContain}>
               <Button 
-                title="Better"
+                title="Cheap"
                 buttonStyle={styles.mainButton} 
                 containerViewStyle={styles.buttonContainer}
                 textStyle={{color: '#06a'}}
                 backgroundColor={colors.better[this.state.better]}
               />
             </View>
+          </View>
+          <View style={styles.clearContain}>
+            <Button 
+              title="Clear Filters"
+              buttonStyle={styles.clearButton}
+            />
           </View>
         </Animated.View>
       </View>
@@ -218,7 +254,7 @@ const styles = {
   drawer: {
     position: 'absolute',
     bottom: 0,
-    height: height - 70,
+    height: height - 90,
     width: '100%',
     backgroundColor: '#e9e9ef'
   },
@@ -252,24 +288,30 @@ const styles = {
     borderColor: '#06a'
   },
   searchContain: {
-    height: 60,
+    height: 65,
     width: '100%',
-    paddingTop: 10,
-    paddingHorizontal: 25,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingHorizontal: 30,
+    flexGrow: 0
   },
   searchBox: {
-    backgroundColor: '#e9e9ef', 
-    borderBottomWidth: 0, 
-    borderTopWidth: 0, 
-    paddingHorizontal: 2
+    // backgroundColor: '#e9e9ef', 
+    backgroundColor: '#fff',
+    elevation: 1,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 15,
+    margin: 5,
+    height: 50,
   },
   bottomButtons: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 10,
+    // marginTop: 5,
+    marginBottom: 5,
     marginHorizontal: 20,
-    marginBottom: 50,
     flex: 1
   },
   buttonContain: {
@@ -282,10 +324,24 @@ const styles = {
   },
   mainButton: {
     flex: 1,
+    // height: 60,
     borderWidth: 1,
     marginHorizontal: 0,
-    marginVertical: 10,
+    marginVertical: 15,
     borderRadius: 5
+  },
+  clearContain: {
+    height: 60,
+    width: '100%',
+    paddingBottom: 30,
+    paddingHorizontal: 20,
+  },
+  clearButton: {
+    borderRadius: 5,
+    borderWidth: 1,
+    marginBottom: 20,
+    borderColor: '#067',
+    backgroundColor: '#067'
   }
 }
 

@@ -19,7 +19,7 @@ const RestaurantCard = ({ item, height }) => (
       {'references' in item &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
-          <Text style={styles.feature}>Featured in {item.references[0].siteName}</Text>
+          <Text style={styles.feature}>Featured in Discover LA, {item.references[0].siteName}</Text>
         </View>
       }
       <View style={styles.detailContain}>
@@ -31,7 +31,7 @@ const RestaurantCard = ({ item, height }) => (
         }
         {'rating' in item &&
           <View style={styles.detail}>
-            <Text style={styles.rating}>{item.rating}/5</Text>
+            <Text style={styles.rating}>{item.rating}</Text>
             <Rating 
               imageSize={18}
               readonly 
