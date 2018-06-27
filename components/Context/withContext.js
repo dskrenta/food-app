@@ -12,5 +12,5 @@ export function withContext(WrappedComponent) {
         />
       )}
     </AppContext.Consumer>
-  )
+  );
 };
