@@ -4,7 +4,11 @@ import { Rating, Icon } from 'react-native-elements';
 
 class Location extends React.Component {
   state = {
-    inputValue: null
+    searchValue: null
+  }
+
+  onChangeText = (searchValue) => {
+    this.setState({ searchValue })
   }
 
   render() {

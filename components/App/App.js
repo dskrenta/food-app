@@ -45,9 +45,9 @@ const AppStackNavigator = createStackNavigator(
   {
     initialRouteName: 'Restaurants',
     navigationOptions: {
-      headerStyle: { backgroundColor: '#067', height: Platform.OS === 'ios' ? 70 : 50, elevation: 0 },
+      headerStyle: { backgroundColor: '#067', height: Platform.OS === 'ios' ? 70 : 50, elevation: 0, paddingBottom: 5 },
       headerTintColor: '#fff',
-      headerTitleStyle: { fontWeight: 'normal', textAlign: 'center', alignSelf: 'center', flex: 1, marginBottom: 5 },
+      headerTitleStyle: { fontWeight: 'normal', textAlign: 'center', alignSelf: 'center', flex: 1,  },
       headerRight: (<View></View>)
     }
   }

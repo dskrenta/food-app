@@ -9,19 +9,19 @@ const RestaurantCard = ({ item, height }) => (
     {'image' in item && <Image style={styles.image} source={{uri: item.image}} />}
     <View style={styles.infoContain}>
       {'title' in item && <Text style={styles.title}>{item.title}</Text>}
-      {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
-      {'address' in item && 
-        <View style={[styles.detailContain]}>
-          <Icon name="place" color="#067" size={20} />
-          <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
-        </View>
-      }
       {'references' in item &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
           <Text style={styles.feature}>Featured in Discover LA, {item.references[0].siteName}</Text>
         </View>
       }
+      {'address' in item && 
+        <View style={[styles.detailContain]}>
+          <Icon name="place" color="#067" size={20} />
+          <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
+        </View>
+      }
+      {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
       <View style={styles.detailContain}>
         {'distance' in item &&
           <View style={styles.detail}>
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: 'bold',
     color: '#333',
     textAlign: 'center'
   },
@@ -87,21 +88,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   distance: {
-    fontSize: 20,
-    color: '#333'
+    fontSize: 18,
   },
   distanceIcon: {
     marginTop: 8
   },
   rating: {
-    fontSize: 20,
-    color: '#333',
+    fontSize: 18,
     marginBottom: 4
   },
   feature: {
     paddingLeft: 5,
-    paddingTop: 1,
-    color: '#333'
+    paddingTop: 1
   }
 });
 
