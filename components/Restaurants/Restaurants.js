@@ -173,12 +173,10 @@ class Restaurants extends React.Component {
               inputContainerStyle={{backgroundColor: 'green'}}
             />*/}
             <TextInput
-              style={[styles.searchBox, this.state.focused ? {borderColor: '#067'} : {borderColor: '#aaa'}]}
+              style={styles.searchBox}
               placeholder="What are you looking for?"
               value={this.state.searchValue}
               onChangeText={this.onChangeText}
-              onFocus={() => this.setState({focused: true})}
-              onEndEditing={() => this.setState({focused: false})}
               underlineColorAndroid='rgba(0,0,0,0)'
             />
           </ScrollView>
@@ -299,7 +297,6 @@ const styles = {
     // backgroundColor: '#e9e9ef', 
     backgroundColor: '#fff',
     elevation: 1,
-    borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 15,
     margin: 5,
