@@ -11,6 +11,7 @@ import { Platform, View } from 'react-native';
 import Restaurants from '../Restaurants/Restaurants';
 import Restaurant from '../Restaurant/Restaurant';
 import Location from '../Location/Location';
+import { AppProvider } from '../Context/AppProvider';
 import { GRAPHQL_API_URL } from '../../utils/constants';
 
 const httpLink = new HttpLink({ uri: GRAPHQL_API_URL });
@@ -55,7 +56,9 @@ const AppStackNavigator = createStackNavigator(
 
 const App = () => (
   <ApolloProvider client={client}>
-    <AppStackNavigator />
+    <AppProvider>
+      <AppStackNavigator />
+    </AppProvider>
   </ApolloProvider>
 );
 
