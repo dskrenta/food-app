@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { Rating } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Rating, Icon } from 'react-native-elements';
 import { DEFAULT_DEPRECATION_REASON } from 'graphql';
 
 const RestaurantCard = ({ item, height }) => (
