@@ -187,8 +187,4 @@ const SEARCH_RESTAURANTS_QUERY = gql`
   }
 `;
 
-Restaurants.navigationOptions = {
-  header: Header
-};
-
 export default withContext(Restaurants);

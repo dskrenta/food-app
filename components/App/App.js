@@ -11,6 +11,7 @@ import { View } from 'react-native';
 import Restaurants from '../Restaurants/Restaurants';
 import Restaurant from '../Restaurant/Restaurant';
 import Location from '../Location/Location';
+import Header from '../Header/Header';
 import { AppProvider } from '../Context/AppProvider';
 import { GRAPHQL_API_URL } from '../../utils/constants';
 
@@ -39,9 +40,24 @@ const client = new ApolloClient({
 
 const AppStackNavigator = createStackNavigator(
   {
-    Restaurants,
-    Restaurant,
-    Location
+    Restaurants: {
+      screen: Restaurants,
+      navigationOptions: {
+        header: Header
+      }
+    },
+    Restaurant: {
+      screen: Restaurant,
+      navigationOptions: {
+        headerTitle: 'Details'
+      }
+    },
+    Location: {
+      screen: Location, 
+      navigationOptions: {
+        headerTitle: 'Select Location'
+      }
+    }
   },
   {
     initialRouteName: 'Restaurants',

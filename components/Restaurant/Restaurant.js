@@ -179,8 +179,4 @@ const styles = StyleSheet.create({
   }
 });
 
-Restaurant.navigationOptions = {
-  headerTitle: 'Details'
-}
-
 export default Restaurant;

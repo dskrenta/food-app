@@ -9,14 +9,10 @@ import {
 } from 'react-native';
 import { Rating, Icon } from 'react-native-elements';
 
+import concatRefs from '../../utils/concatRefs';
+
 const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
-
-function concatRefs(references) {
-  let refString = '';
-  references.forEach((ref, index) => refString += `${ref.site_name}${index < references.length - 1 && ', '}`)
-  return refString;
-}
 
 const RestaurantCard = ({ item, height }) => (
   <View style={styles.card}>
