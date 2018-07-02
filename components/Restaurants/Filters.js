@@ -16,7 +16,7 @@ class Filters extends React.Component {
     kids: 0,
     cheap: 0
   }
-  
+
   onChangeText = (value) => {
     this.setState({searchValue: value});
   }
@@ -26,26 +26,26 @@ class Filters extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.contain} keyboardShouldPersistTaps="never">
         <View style={styles.topButtons}>
-          <Button 
-            title="Closer" 
+          <Button
+            title="Closer"
             onPress={() => {this.setState({closer: (this.state.closer + 1) % 6 })}}
             buttonStyle={styles.closerButton}
             containerViewStyle={styles.topButtonContainer}
             textStyle={{color: '#007558'}}
             backgroundColor={COLORS.closer[this.state.closer]}
           />
-          <Button 
+          <Button
             title={drawerOpen ? "Filters" : "Close"}
-            onPress={toggleDrawer} 
-            buttonStyle={styles.filterButton} 
+            onPress={toggleDrawer}
+            buttonStyle={styles.filterButton}
             containerViewStyle={styles.topButtonContainer}
             textStyle={{color: '#067'}}
             backgroundColor="#fff"
           />
-          <Button 
+          <Button
             title="Better"
             onPress={() => {this.setState({better: (this.state.better + 1) % 6 })}}
-            buttonStyle={styles.betterButton} 
+            buttonStyle={styles.betterButton}
             containerViewStyle={styles.topButtonContainer}
             textStyle={{color: '#073678'}}
             backgroundColor={COLORS.better[this.state.better]}
@@ -59,65 +59,66 @@ class Filters extends React.Component {
             placeholder="Search Places"
             value={this.state.searchValue}
             onChangeText={this.onChangeText}
-            underlineColorAndroid='rgba(0,0,0,0)'
+            underlineColorAndroid="rgba(0,0,0,0)"
+            keyboardType="search"
           />
         </View>
         <View style={styles.buttonRow}>
-          <Button 
+          <Button
             title="Veg"
             onPress={() => {this.setState({veg: (this.state.veg + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#206020'}}
             backgroundColor={COLORS.veg[this.state.veg]}
           />
-          <Button 
+          <Button
             title="Meat"
             onPress={() => {this.setState({meat: (this.state.meat + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#800000'}}
             backgroundColor={COLORS.meat[this.state.meat]}
           />
         </View>
         <View style={styles.buttonRow}>
-          <Button 
+          <Button
             title="Wine"
             onPress={() => {this.setState({wine: (this.state.wine + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#5b244e'}}
             backgroundColor={COLORS.wine[this.state.wine]}
           />
-          <Button 
+          <Button
             title="Cocktails"
             onPress={() => {this.setState({cocktails: (this.state.cocktails + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#002b80'}}
             backgroundColor={COLORS.cocktails[this.state.cocktails]}
           />
         </View>
         <View style={styles.buttonRow}>
-          <Button 
+          <Button
             title="Kids"
             onPress={() => {this.setState({kids: (this.state.kids + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#803300'}}
             backgroundColor={COLORS.kids[this.state.kids]}
           />
-          <Button 
+          <Button
             title="Cheap"
             onPress={() => {this.setState({cheap: (this.state.cheap + 1) % 6 })}}
-            buttonStyle={styles.mainButton} 
+            buttonStyle={styles.mainButton}
             containerViewStyle={styles.buttonContainer}
             textStyle={{color: '#008000'}}
             backgroundColor={COLORS.cheap[this.state.cheap]}
           />
         </View>
         <View style={styles.clearContain}>
-          <Button 
+          <Button
             title="Clear Filters"
             buttonStyle={styles.clearButton}
             containerViewStyle={styles.clearButtonContainer}
@@ -147,22 +148,34 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   filterButton: {
-    height: 40,
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     borderRadius: 5,
-    margin: 10
+    marginHorizontal: 10,
+    marginVertical: 3
   },
   closerButton: {
-    height: 40,
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     borderRadius: 5,
-    margin: 5
+    marginHorizontal: 5,
+    marginVertical: 3
   },
   betterButton: {
-    height: 40,
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     borderRadius: 5,
-    margin: 5
+    marginHorizontal: 5,
+    marginVertical: 3
   },
   buttonRow: {
     display: 'flex',
@@ -175,7 +188,10 @@ const styles = StyleSheet.create({
   },
   mainButton: {
     elevation: 1,
-    height: 40,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     borderRadius: 5
   },
   topButtonContainer: {
@@ -198,7 +214,10 @@ const styles = StyleSheet.create({
   },
   clearButton: {
     elevation: 1,
-    height: 40,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     borderRadius: 5,
   },
   clearButtonContainer: {
@@ -217,6 +236,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     marginVertical: 5,
     marginHorizontal: 35,
     paddingLeft: 12,

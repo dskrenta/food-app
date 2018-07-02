@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  Dimensions, 
-  Platform, 
-  Animated, 
-  TextInput, 
+import {
+  View,
+  Text,
+  Dimensions,
+  Platform,
+  Animated,
+  TextInput,
   ScrollView,
   TouchableHighlight
 } from 'react-native';
@@ -18,7 +18,7 @@ import Filters from './Filters';
 
 const sampleData = [
   {
-    image: 'http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg',
+    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
     title: 'San Shi Go',
     address: '205 Main St, Newport Beach',
     distance: 2.1,
@@ -27,7 +27,7 @@ const sampleData = [
     description: 'San Shi Go, Casual Elegant Seafood cuisine..'
   },
   {
-    image: 'http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg',
+    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
     title: 'San Shi Go',
     address: '205 Main St, Newport Beach',
     distance: 2.1,
@@ -36,7 +36,7 @@ const sampleData = [
     description: 'Creative rolls (chef\'s choice) style in a casual, relaxed environment.'
   },
   {
-    image: 'http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg',
+    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
     title: 'San Shi Go',
     address: '205 Main St, Newport Beach',
     distance: 2.1,
@@ -45,7 +45,7 @@ const sampleData = [
     // description: 'Best sushi in Newport Beach with chirashis loaded with a great selection of fish'
   },
   {
-    image: 'http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg',
+    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
     title: 'San Shi Go',
     address: '205 Main St, Newport Beach',
     distance: 2.1,
@@ -55,7 +55,7 @@ const sampleData = [
 ]
 
 const { height, width } = Dimensions.get('window');
-const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
+const cardHeight = height - (Platform.OS === 'ios' ? 130 : 130);
 
 class Restaurants extends React.Component {
   state = {
@@ -63,7 +63,7 @@ class Restaurants extends React.Component {
     searchValue: null,
     focused: false
   }
-  
+
   constructor(props) {
     super(props);
     this.Animation = new Animated.Value(0);
@@ -104,9 +104,9 @@ class Restaurants extends React.Component {
         <View style={{width: '100%', height: cardHeight, paddingVertical: 10}}>
           <CarouselPager ref={(ref) => {this.carousel = ref}} pageSpacing={5}>
             {sampleData.map((item, index) => (
-              <TouchableHighlight 
-                key={index} 
-                underlayColor="rgba(0,0,0,0)" 
+              <TouchableHighlight
+                key={index}
+                underlayColor="rgba(0,0,0,0)"
                 onPress={() => {navigation.navigate('Restaurant')}}
                 style={{flex: 1}}
               >
@@ -158,14 +158,14 @@ const Restaurants = ({
       lat,
       lon
     },
-    closer, 
+    closer,
     better
   }
 }) => (
   <View>
-    <Query 
-      query={SEARCH_RESTAURANTS_QUERY} 
-      variables={{ 
+    <Query
+      query={SEARCH_RESTAURANTS_QUERY}
+      variables={{
         lat,
         lon,
         date: null,
@@ -206,22 +206,22 @@ const SEARCH_RESTAURANTS_QUERY = gql`
   ) {
     search_restaurants(
       lat: $lat,
-      lon: $lon, 
+      lon: $lon,
       date: $date,
-      time: $time, 
-      tz_offset: $tz_offset, 
+      time: $time,
+      tz_offset: $tz_offset,
       closer: $closer,
       better: $better
     ) {
       response_status {
-        stats 
+        stats
         error
         error_code
       }
       total_results
       results {
         id
-        description 
+        description
         distance
         title
         lat

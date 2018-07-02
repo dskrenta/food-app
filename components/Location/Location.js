@@ -21,7 +21,8 @@ class Location extends React.Component {
             placeholder="Search Address"
             value={this.state.searchValue}
             onChangeText={this.onChangeText}
-            underlineColorAndroid='rgba(0,0,0,0)'
+            underlineColorAndroid="rgba(0,0,0,0)"
+            keyboardType="search"
           />
         </View>
         <ScrollView keyboardShouldPersistTaps="handled">
@@ -67,6 +68,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     marginVertical: 5,
     marginHorizontal: 10,
     paddingLeft: 10,

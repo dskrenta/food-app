@@ -14,7 +14,7 @@ const sampleRestaurant = {
   description: 'San Shi Go, Casual Elegant Seafood cuisine.',
   /*hours: String
   hours_source: String*/
-  images: ['http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg','http://ashleycreates.typepad.com/.a/6a0120a8d53767970b01a511983ee1970c-pi','http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg']
+  images: ['https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg']
   /*lat: Float
   lon: Float
   opentable_url: String
@@ -52,7 +52,7 @@ class Restaurant extends React.Component {
             <Text style={styles.detailText}>{sampleRestaurant.rating} / 5</Text>
             <Rating
               imageSize={20}
-              readonly 
+              readonly
               startingValue={sampleRestaurant.rating}
             />
           </View>

@@ -48,7 +48,7 @@ const AppStackNavigator = createStackNavigator(
     navigationOptions: {
       headerStyle: { backgroundColor: '#067', height: 50, elevation: 0, paddingBottom: 5 },
       headerTintColor: '#fff',
-      headerTitleStyle: { fontWeight: 'normal', textAlign: 'center', alignSelf: 'center', flex: 1 },
+      headerTitleStyle: { fontWeight: 'normal', textAlign: 'center', alignSelf: 'center', flex: 1, fontSize: 20 },
       headerRight: (<View></View>)
     }
   }
