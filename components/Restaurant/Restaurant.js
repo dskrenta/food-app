@@ -5,7 +5,8 @@ import {
   ScrollView, 
   StyleSheet, 
   Image, 
-  Dimensions 
+  Dimensions,
+  TouchableHighlight
 } from 'react-native';
 import { Icon, Rating } from 'react-native-elements';
 import CarouselPager from 'react-native-carousel-pager';
@@ -17,7 +18,7 @@ import {
 
 const { height, width } = Dimensions.get("window");
 
-const Restaurant = ({ navigation: { state: { params: { item: { 
+const Restaurant = ({ navigation, navigation: { state: { params: { item: { 
   title,
   images,
   references,
@@ -49,10 +50,12 @@ const Restaurant = ({ navigation: { state: { params: { item: {
           startingValue={rating}
         />
       </View>
-      <View style={styles.detail}>
-        <Icon name="language" color="#067" size={27} containerStyle={styles.detailIcon} />
-        <Text style={styles.linkText}>Website</Text>
-      </View>
+      <TouchableHighlight onPress={() => navigation.navigate('Webview', { url })}>
+        <View style={styles.detail}>
+          <Icon name="language" color="#067" size={27} containerStyle={styles.detailIcon} />
+          <Text style={styles.linkText}>Website</Text>
+        </View>
+      </TouchableHighlight>
     </View>
     <View style={styles.infoHeader}>
       <View style={styles.row}>

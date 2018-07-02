@@ -11,6 +11,7 @@ import { View } from 'react-native';
 import Restaurants from '../Restaurants/Restaurants';
 import Restaurant from '../Restaurant/Restaurant';
 import Location from '../Location/Location';
+import Webview from '../Webview/Webview';
 import Header from '../Header/Header';
 import { AppProvider } from '../Context/AppProvider';
 import { GRAPHQL_API_URL } from '../../utils/constants';
@@ -56,6 +57,12 @@ const AppStackNavigator = createStackNavigator(
       screen: Location, 
       navigationOptions: {
         headerTitle: 'Select Location'
+      }
+    },
+    Webview: {
+      screen: Webview,
+      navigationOptions: {
+        headerTitle: 'Website'
       }
     }
   },
