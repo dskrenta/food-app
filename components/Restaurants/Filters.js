@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     height: 40,
     elevation: 1,
     borderRadius: 5,
-    margin: 5
+    margin: 10
   },
   closerButton: {
     height: 40,
@@ -183,6 +183,7 @@ const styles = StyleSheet.create({
     margin: 5,
     marginLeft: 0,
     marginRight: 0,
+    flex: 1
   },
   buttonContainer: {
     width: '50%',

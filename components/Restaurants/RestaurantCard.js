@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, Platform } from 'react-native';
 import { Rating, Icon } from 'react-native-elements';
 import { DEFAULT_DEPRECATION_REASON } from 'graphql';
+
+const { height, width } = Dimensions.get('window');
+const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
 
 const RestaurantCard = ({ item, height }) => (
   <View style={styles.card}>
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   image: {
-    height: undefined,
+    height: cardHeight * 0.3,
     width: '100%',
     flex: 1,
     resizeMode: 'cover'

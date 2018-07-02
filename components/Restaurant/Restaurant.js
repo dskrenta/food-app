@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: height * 0.4
+    height: height * 0.4,
+    resizeMode: 'cover'
   },
   infoHeader: {
     paddingHorizontal: 30,
