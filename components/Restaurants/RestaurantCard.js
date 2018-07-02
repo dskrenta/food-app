@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { Rating } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, Image, StyleSheet, Dimensions, Platform } from 'react-native';
+import { Rating, Icon } from 'react-native-elements';
 import { DEFAULT_DEPRECATION_REASON } from 'graphql';
+
+const { height, width } = Dimensions.get('window');
+const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
 
 const RestaurantCard = ({ item, height }) => (
   <View style={styles.card}>
@@ -15,7 +17,7 @@ const RestaurantCard = ({ item, height }) => (
           <Text style={styles.feature}>Featured in Discover LA, {item.references[0].siteName}</Text>
         </View>
       }
-      {'address' in item && 
+      {'address' in item &&
         <View style={[styles.detailContain]}>
           <Icon name="place" color="#067" size={20} />
           <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
@@ -32,9 +34,9 @@ const RestaurantCard = ({ item, height }) => (
         {'rating' in item &&
           <View style={styles.detail}>
             <Text style={styles.rating}>{item.rating}</Text>
-            <Rating 
+            <Rating
               imageSize={18}
-              readonly 
+              readonly
               startingValue={item.rating}
             />
           </View>
@@ -50,12 +52,15 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 5,
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
     margin: 5
   },
   image: {
-    height: undefined,
+    height: cardHeight * 0.4,
     width: '100%',
-    flex: 1,
     resizeMode: 'cover'
   },
   infoContain: {

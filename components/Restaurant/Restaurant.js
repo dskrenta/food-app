@@ -14,7 +14,7 @@ const sampleRestaurant = {
   description: 'San Shi Go, Casual Elegant Seafood cuisine.',
   /*hours: String
   hours_source: String*/
-  images: ['http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg','http://ashleycreates.typepad.com/.a/6a0120a8d53767970b01a511983ee1970c-pi','http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg']
+  images: ['https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg']
   /*lat: Float
   lon: Float
   opentable_url: String
@@ -52,7 +52,7 @@ class Restaurant extends React.Component {
             <Text style={styles.detailText}>{sampleRestaurant.rating} / 5</Text>
             <Rating
               imageSize={20}
-              readonly 
+              readonly
               startingValue={sampleRestaurant.rating}
             />
           </View>
@@ -71,7 +71,7 @@ class Restaurant extends React.Component {
             </Text>
           </View>
           {sampleRestaurant.references.map((item, index) => ('quote' in item &&
-            <View style={styles.row}>
+            <View key={index} style={styles.row}>
               <Icon name="format-quote" color="#39f" containerStyle={styles.rowIcon} />
               <Text style={styles.rowText}>{item.quote}<Text style={styles.quoteAuthor}> - {item.siteName}</Text></Text>
             </View>
@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: height * 0.4
+    height: height * 0.4,
+    resizeMode: 'cover'
   },
   infoHeader: {
     paddingHorizontal: 30,

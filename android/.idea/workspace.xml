@@ -14,12 +14,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/build-info/debug/build-info.xml" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/processInstantRunDebugResourcesApk/package_resources-debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/processInstantRunDebugResourcesApk/package_resources-debug/dex-renamer-state.txt" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/resources/instant-run/debug/resources-debug.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/instant-run/debug/resources-debug.apk" />
       <change beforePath="$PROJECT_DIR$/../components/App/App.js" afterPath="$PROJECT_DIR$/../components/App/App.js" />
-      <change beforePath="$PROJECT_DIR$/../components/Location/Location.js" afterPath="$PROJECT_DIR$/../components/Location/Location.js" />
-      <change beforePath="$PROJECT_DIR$/../components/Restaurant/Restaurant.js" afterPath="$PROJECT_DIR$/../components/Restaurant/Restaurant.js" />
-      <change beforePath="$PROJECT_DIR$/../components/Restaurants/RestaurantCard.js" afterPath="$PROJECT_DIR$/../components/Restaurants/RestaurantCard.js" />
-      <change beforePath="$PROJECT_DIR$/../components/Restaurants/Restaurants.js" afterPath="$PROJECT_DIR$/../components/Restaurants/Restaurants.js" />
+      <change beforePath="$PROJECT_DIR$/../components/Header/Header.js" afterPath="$PROJECT_DIR$/../components/Header/Header.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -4178,7 +4176,7 @@
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="device.picker.selection" value="Nexus_S_API_26" />
+    <property name="device.picker.selection" value="Nexus_5X_API_26" />
     <property name="android.profiler.active" value="true" />
   </component>
   <component name="RunDashboard">
