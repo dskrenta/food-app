@@ -71,7 +71,7 @@ class Restaurant extends React.Component {
             </Text>
           </View>
           {sampleRestaurant.references.map((item, index) => ('quote' in item &&
-            <View style={styles.row}>
+            <View key={index} style={styles.row}>
               <Icon name="format-quote" color="#39f" containerStyle={styles.rowIcon} />
               <Text style={styles.rowText}>{item.quote}<Text style={styles.quoteAuthor}> - {item.siteName}</Text></Text>
             </View>
