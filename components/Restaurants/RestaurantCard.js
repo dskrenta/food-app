@@ -9,7 +9,10 @@ import {
 } from 'react-native';
 import { Rating, Icon } from 'react-native-elements';
 
-import concatRefs from '../../utils/concatRefs';
+import {
+  referencesToString,
+  roundTo1Decimal
+} from '../../utils/utils';
 
 const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
@@ -22,13 +25,13 @@ const RestaurantCard = ({ item, height }) => (
       {('references' in item) &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
-          <Text style={styles.feature}>{`Featured in ${concatRefs(item.references)}`}</Text>
+          <Text style={styles.feature}>{`Featured in ${referencesToString(item.references)}`}</Text>
         </View>
       }
       {'address' in item &&
         <View style={[styles.detailContain]}>
           <Icon name="place" color="#067" size={20} />
-          <Text style={styles.feature} numberOfLines={1}>{item.street_address}</Text>
+          <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
         </View>
       }
       {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
@@ -36,7 +39,7 @@ const RestaurantCard = ({ item, height }) => (
         {'distance' in item &&
           <View style={styles.detail}>
             <Icon name="directions-walk" color="#067" size={22} style={styles.distanceIcon} />
-            <Text style={styles.distance}>{item.distance} mi</Text>
+            <Text style={styles.distance}>{roundTo1Decimal(item.distance)} mi</Text>
           </View>
         }
         {'rating' in item &&

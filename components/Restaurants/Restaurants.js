@@ -12,7 +12,6 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import withContext from '../Context/withContext';
-import Header from '../Header/Header';
 import RestaurantCard from './RestaurantCard';
 import Filters from './Filters';
 import { getCurrentUTCOffset } from '../../utils/time';
@@ -104,7 +103,7 @@ class Restaurants extends React.Component {
                     <TouchableHighlight
                       key={index}
                       underlayColor="rgba(0,0,0,0)"
-                      onPress={() => {navigation.navigate('Restaurant')}}
+                      onPress={() => {navigation.navigate('Restaurant', { item })}}
                       style={{flex: 1}}
                     >
                       <RestaurantCard item={item} key={index} height={cardHeight} />
@@ -178,10 +177,11 @@ const SEARCH_RESTAURANTS_QUERY = gql`
         lon
         images
         rating
-        street_address
+        address
         references {
           site_name
-        }
+        },
+        url
       }
     }
   }
