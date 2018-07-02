@@ -1,16 +1,12 @@
 import React from 'react';
 import {
   View,
-  Text,
   Dimensions,
   Platform,
   Animated,
-  TextInput,
-  ScrollView,
   TouchableHighlight
 } from 'react-native';
 import CarouselPager from 'react-native-carousel-pager';
-import { Button, SearchBar } from 'react-native-elements'
 
 import Header from '../Header/Header';
 import RestaurantCard from './RestaurantCard';

@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, View, ScrollView, StyleSheet, Image, Dimensions } from 'react-native';
+import { 
+  Text, 
+  View, 
+  ScrollView, 
+  StyleSheet, 
+  Image, 
+  Dimensions 
+} from 'react-native';
 import { Icon, Rating } from 'react-native-elements';
 import CarouselPager from 'react-native-carousel-pager';
 

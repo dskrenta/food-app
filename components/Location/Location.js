@@ -1,6 +1,13 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image, TouchableHighlight, TextInput, ScrollView } from 'react-native';
-import { Rating, Icon } from 'react-native-elements';
+import { 
+  Text,
+  StyleSheet, 
+  View, 
+  TouchableHighlight, 
+  TextInput, 
+  ScrollView 
+} from 'react-native';
+import { Icon } from 'react-native-elements';
 
 class Location extends React.Component {
   state = {
@@ -22,7 +29,7 @@ class Location extends React.Component {
             value={this.state.searchValue}
             onChangeText={this.onChangeText}
             underlineColorAndroid="rgba(0,0,0,0)"
-            keyboardType="search"
+            keyboardType="default"
           />
         </View>
         <ScrollView keyboardShouldPersistTaps="handled">

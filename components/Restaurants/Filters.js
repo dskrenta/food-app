@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, TextInput, StyleSheet } from 'react-native';
+import { 
+  View, 
+  Text, 
+  ScrollView, 
+  TextInput,
+  StyleSheet 
+} from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 
 import { COLORS } from '../../utils/constants';
@@ -60,7 +66,7 @@ class Filters extends React.Component {
             value={this.state.searchValue}
             onChangeText={this.onChangeText}
             underlineColorAndroid="rgba(0,0,0,0)"
-            keyboardType="search"
+            keyboardType="default"
           />
         </View>
         <View style={styles.buttonRow}>
