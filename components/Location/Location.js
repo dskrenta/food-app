@@ -14,13 +14,16 @@ class Location extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          style={styles.searchBox}
-          placeholder="Search Address"
-          value={this.state.searchValue}
-          onChangeText={this.onChangeText}
-          underlineColorAndroid='rgba(0,0,0,0)'
-        />
+        <View style={styles.searchContain}>
+          <Icon name="search" size={20} color="#bbb" />
+          <TextInput
+            style={styles.searchBox}
+            placeholder="Search Address"
+            value={this.state.searchValue}
+            onChangeText={this.onChangeText}
+            underlineColorAndroid='rgba(0,0,0,0)'
+          />
+        </View>
         <ScrollView keyboardShouldPersistTaps="handled">
           <TouchableHighlight
             onPress={() => {}}
@@ -52,17 +55,28 @@ const styles = StyleSheet.create({
     paddingLeft: 5
   },
   icon: {
-    marginHorizontal: 10
+    marginLeft: 15,
+    marginRight: 10
   },
   label: {
     fontSize: 16
   },
-  searchBox: {
+  searchContain: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#fff',
     elevation: 1,
-    borderRadius: 5,
-    paddingHorizontal: 15,
-    margin: 5,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    paddingLeft: 10,
+    height: 50,
+    borderRadius: 5
+  },
+  searchBox: {
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
     height: 45,
   }
 });

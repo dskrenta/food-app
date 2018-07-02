@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, TextInput, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 import { COLORS } from '../../utils/constants';
 
@@ -24,7 +24,7 @@ class Filters extends React.Component {
   render() {
     const { toggleDrawer, drawerOpen } = this.props;
     return (
-      <ScrollView contentContainerStyle={styles.contain} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={styles.contain} keyboardShouldPersistTaps="never">
         <View style={styles.topButtons}>
           <Button 
             title="Closer" 
@@ -53,9 +53,10 @@ class Filters extends React.Component {
         </View>
         <Text style={styles.filterMessage}>What are you looking for?</Text>
         <View style={styles.searchContain}>
+          <Icon name="search" size={20} color="#bbb" />
           <TextInput
             style={styles.searchBox}
-            placeholder="Search places"
+            placeholder="Search Places"
             value={this.state.searchValue}
             onChangeText={this.onChangeText}
             underlineColorAndroid='rgba(0,0,0,0)'
@@ -203,26 +204,28 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0
   },
-  searchContain: {
-    width: '100%',
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingHorizontal: 30,
-    flexGrow: 0
-  },
   filterMessage: {
     paddingHorizontal: 35,
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold'
   },
-  searchBox: {
-    // backgroundColor: '#e9e9ef', 
+  searchContain: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#fff',
     elevation: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    margin: 5,
+    marginVertical: 5,
+    marginHorizontal: 35,
+    paddingLeft: 12,
+    height: 50,
+    borderRadius: 5
+  },
+  searchBox: {
+    flex: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 10,
     height: 50,
   },
 });
