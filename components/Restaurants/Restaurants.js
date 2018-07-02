@@ -4,51 +4,18 @@ import {
   Dimensions,
   Platform,
   Animated,
-  TouchableHighlight
+  TouchableHighlight,
+  ActivityIndicator
 } from 'react-native';
 import CarouselPager from 'react-native-carousel-pager';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
 
+import withContext from '../Context/withContext';
 import Header from '../Header/Header';
 import RestaurantCard from './RestaurantCard';
 import Filters from './Filters';
-
-const sampleData = [
-  {
-    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
-    title: 'San Shi Go',
-    address: '205 Main St, Newport Beach',
-    distance: 2.1,
-    rating: 4.7,
-    references: [{siteName: 'Zagat'}],
-    description: 'San Shi Go, Casual Elegant Seafood cuisine..'
-  },
-  {
-    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
-    title: 'San Shi Go',
-    address: '205 Main St, Newport Beach',
-    distance: 2.1,
-    rating: 5,
-    references: [{siteName: 'Zagat'}, {siteName: 'Discover LA'}, {siteName: 'Thrillist'}],
-    description: 'Creative rolls (chef\'s choice) style in a casual, relaxed environment.'
-  },
-  {
-    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
-    title: 'San Shi Go',
-    address: '205 Main St, Newport Beach',
-    distance: 2.1,
-    rating: 5,
-    references: [{siteName: 'Zagat'}, {siteName: 'Discover LA'},],
-    // description: 'Best sushi in Newport Beach with chirashis loaded with a great selection of fish'
-  },
-  {
-    image: 'https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg',
-    title: 'San Shi Go',
-    address: '205 Main St, Newport Beach',
-    distance: 2.1,
-    rating: 5,
-    // description: 'Best sushi in Newport Beach with chirashis loaded with a great selection of fish'
-  }
-]
+import { getCurrentUTCOffset } from '../../utils/time';
 
 const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 130 : 130);
@@ -89,7 +56,18 @@ class Restaurants extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { 
+      navigation,
+      context: {
+        location: {
+          lat,
+          lon
+        },
+        closer,
+        better
+      }
+    } = this.props;
+
     const offset = this.Animation.interpolate({
       inputRange: [0,1],
       outputRange: [height - 100, 50]
@@ -97,20 +75,46 @@ class Restaurants extends React.Component {
 
     return (
       <View>
-        <View style={{width: '100%', height: cardHeight, paddingVertical: 10}}>
-          <CarouselPager ref={(ref) => {this.carousel = ref}} pageSpacing={5}>
-            {sampleData.map((item, index) => (
-              <TouchableHighlight
-                key={index}
-                underlayColor="rgba(0,0,0,0)"
-                onPress={() => {navigation.navigate('Restaurant')}}
-                style={{flex: 1}}
-              >
-                <RestaurantCard item={item} key={index} height={cardHeight} />
-              </TouchableHighlight>
-            ))}
-          </CarouselPager>
-        </View>
+        <Query
+          query={SEARCH_RESTAURANTS_QUERY}
+          variables={{
+            lat,
+            lon,
+            date: null,
+            time: null,
+            tz_offset: getCurrentUTCOffset(),
+            closer,
+            better
+          }}
+        >
+          {({ loading, error, data = {} }) => {
+            if (loading) {
+              return (
+                <View style={{ width: '100%', height: cardHeight, paddingVertical: 10 }}>
+                  <ActivityIndicator size="large" style={{ padding: 30 }} />
+                </View>
+              );
+            }
+            console.log(data);
+
+            return (
+              <View style={{width: '100%', height: cardHeight, paddingVertical: 10}}>
+                <CarouselPager ref={(ref) => {this.carousel = ref}} pageSpacing={5}>
+                  {'search_restaurants' in data && data.search_restaurants.results.map((item, index) => (
+                    <TouchableHighlight
+                      key={index}
+                      underlayColor="rgba(0,0,0,0)"
+                      onPress={() => {navigation.navigate('Restaurant')}}
+                      style={{flex: 1}}
+                    >
+                      <RestaurantCard item={item} key={index} height={cardHeight} />
+                    </TouchableHighlight>
+                  ))}
+                </CarouselPager>
+              </View>
+            );
+          }}
+        </Query>
         <Animated.View style={[styles.drawer, {transform: [{translateY: offset}]}]}>
           <Filters toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} />
         </Animated.View>
@@ -138,57 +142,6 @@ const styles = {
     width: '100%'
   }
 }
-// Data code
-/*
-import { View, Text } from 'react-native';
-import { ButtonGroup } from 'react-native-elements';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-
-import Header from '../Header/Header';
-import withContext from '../Context/withContext';
-
-const Restaurants = ({
-  context: {
-    location: {
-      lat,
-      lon
-    },
-    closer,
-    better
-  }
-}) => (
-  <View>
-    <Query
-      query={SEARCH_RESTAURANTS_QUERY}
-      variables={{
-        lat,
-        lon,
-        date: null,
-        time: null,
-        tz_offset: getCurrentUTCOffset(),
-        closer,
-        better
-      }}
-    >
-      {({ loading, error, data = {} }) => {
-        if (loading) return <Text>Loading...</Text>;
-
-        return (
-          <View>
-            <Text>Restaurants</Text>
-            <ButtonGroup
-              onPress={this.updateIndex}
-              selectedIndex={0}
-              buttons={['Better', 'Closer']}
-              containerStyle={{height: 25}}
-            />
-          </View>
-        );
-      }}
-    </Query>
-  </View>
-);
 
 const SEARCH_RESTAURANTS_QUERY = gql`
   query search_restaurants(
@@ -210,19 +163,25 @@ const SEARCH_RESTAURANTS_QUERY = gql`
       better: $better
     ) {
       response_status {
-        stats
+        status
         error
         error_code
       }
       total_results
       results {
         id
+        image
         description
         distance
         title
         lat
         lon
         images
+        rating
+        street_address
+        references {
+          site_name
+        }
       }
     }
   }
@@ -233,10 +192,3 @@ Restaurants.navigationOptions = {
 };
 
 export default withContext(Restaurants);
-*/
-
-Restaurants.navigationOptions = {
-  header: Header
-};
-
-export default Restaurants;

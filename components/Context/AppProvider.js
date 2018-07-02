@@ -156,6 +156,10 @@ export class AppProvider extends React.Component {
     }
   };
 
+  componentDidMount() {
+    this.state.setLocation();
+  }
+
   render() {
     return (
       <AppContext.Provider value={this.state}>

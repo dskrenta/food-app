@@ -12,21 +12,27 @@ import { Rating, Icon } from 'react-native-elements';
 const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
 
+function concatRefs(references) {
+  let refString = '';
+  references.forEach((ref, index) => refString += `${ref.site_name}${index < references.length - 1 && ', '}`)
+  return refString;
+}
+
 const RestaurantCard = ({ item, height }) => (
   <View style={styles.card}>
     {'image' in item && <Image style={styles.image} source={{uri: item.image}} />}
     <View style={styles.infoContain}>
       {'title' in item && <Text style={styles.title}>{item.title}</Text>}
-      {'references' in item &&
+      {('references' in item) &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
-          <Text style={styles.feature}>Featured in Discover LA, {item.references[0].siteName}</Text>
+          <Text style={styles.feature}>{`Featured in ${concatRefs(item.references)}`}</Text>
         </View>
       }
       {'address' in item &&
         <View style={[styles.detailContain]}>
           <Icon name="place" color="#067" size={20} />
-          <Text style={styles.feature} numberOfLines={1}>{item.address}</Text>
+          <Text style={styles.feature} numberOfLines={1}>{item.street_address}</Text>
         </View>
       }
       {'description' in item && <Text style={styles.desc} numberOfLines={2}>{item.description}</Text>}
