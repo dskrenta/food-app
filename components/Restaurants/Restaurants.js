@@ -24,7 +24,7 @@ class Restaurants extends React.Component {
     drawerOpen: true,
     searchValue: null,
     focused: false
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -62,8 +62,12 @@ class Restaurants extends React.Component {
           lat,
           lon
         },
-        closer,
-        better
+        filters: {
+          closer,
+          better
+        },
+        handleCloser,
+        handleBetter,        
       }
     } = this.props;
 
@@ -115,7 +119,12 @@ class Restaurants extends React.Component {
           }}
         </Query>
         <Animated.View style={[styles.drawer, {transform: [{translateY: offset}]}]}>
-          <Filters toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} />
+          <Filters 
+            toggleDrawer={this.toggleDrawer} 
+            drawerOpen={this.state.drawerOpen} 
+            handleCloser={handleCloser}
+            handleBetter={handleBetter}
+          />
         </Animated.View>
       </View>
     );
@@ -140,7 +149,7 @@ const styles = {
     height: 60,
     width: '100%'
   }
-}
+};
 
 const SEARCH_RESTAURANTS_QUERY = gql`
   query search_restaurants(

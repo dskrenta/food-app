@@ -28,13 +28,19 @@ class Filters extends React.Component {
   }
 
   render() {
-    const { toggleDrawer, drawerOpen } = this.props;
+    const { 
+      toggleDrawer, 
+      drawerOpen,
+      handleCloser,
+      handleBetter
+    } = this.props;
+
     return (
       <ScrollView contentContainerStyle={styles.contain} keyboardShouldPersistTaps="never">
         <View style={styles.topButtons}>
           <Button
             title="Closer"
-            onPress={() => {this.setState({closer: (this.state.closer + 1) % 6 })}}
+            onPress={() => {handleCloser}}
             buttonStyle={styles.closerButton}
             containerViewStyle={styles.topButtonContainer}
             textStyle={{color: '#007558'}}
@@ -50,7 +56,7 @@ class Filters extends React.Component {
           />
           <Button
             title="Better"
-            onPress={() => {this.setState({better: (this.state.better + 1) % 6 })}}
+            onPress={() => {handleBetter}}
             buttonStyle={styles.betterButton}
             containerViewStyle={styles.topButtonContainer}
             textStyle={{color: '#073678'}}
