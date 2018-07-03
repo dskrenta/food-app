@@ -93,8 +93,4 @@ const styles = StyleSheet.create({
   }
 });
 
-Location.navigationOptions = {
-  headerTitle: 'Select Location'
-}
-
 export default Location;

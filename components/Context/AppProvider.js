@@ -66,7 +66,7 @@ export class AppProvider extends React.Component {
         );
       }
     },
-    closer: () => {
+    handleCloser: () => {
       if (this.state.closer >= MAX_CLOSER) {
         return;
       }
@@ -83,7 +83,7 @@ export class AppProvider extends React.Component {
         });
       }
     },
-    better: () => {
+    handleBetter: () => {
       if (this.state.better >= MAX_BETTER) {
         return;
       }
@@ -100,7 +100,7 @@ export class AppProvider extends React.Component {
         });
       }
     },
-    veg: () => {
+    handleVeg: () => {
       if (this.state.better >= MAX_VEG) {
         return;
       }
@@ -109,7 +109,7 @@ export class AppProvider extends React.Component {
         veg: this.state.veg + 1
       });
     },
-    meat: () => {
+    handleMeat: () => {
       if (this.state.better >= MAX_MEAT) {
         return;
       }
@@ -118,7 +118,7 @@ export class AppProvider extends React.Component {
         meat: this.state.meat + 1
       });
     },
-    kids: () => {
+    handleKids: () => {
       if (this.state.better >= MAX_KIDS) {
         return;
       }
@@ -127,7 +127,7 @@ export class AppProvider extends React.Component {
         kids: this.state.kids + 1
       });
     },
-    cheap: () => {
+    handleCheap: () => {
       if (this.state.better >= MAX_CHEAP) {
         return;
       }
@@ -136,7 +136,7 @@ export class AppProvider extends React.Component {
         cheap: this.state.cheap + 1
       });
     },
-    wine: () => {
+    handleWine: () => {
       if (this.state.better >= MAX_WINE) {
         return;
       }
@@ -145,7 +145,7 @@ export class AppProvider extends React.Component {
         wine: this.state.wine + 1
       });
     },
-    cocktails: () => {
+    handleCocktails: () => {
       if (this.state.better >= MAX_COCKTAILS) {
         return;
       }
@@ -155,6 +155,10 @@ export class AppProvider extends React.Component {
       });
     }
   };
+
+  componentDidMount() {
+    this.state.setLocation();
+  }
 
   render() {
     return (

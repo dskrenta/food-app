@@ -6,11 +6,13 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
 import { createStackNavigator } from 'react-navigation';
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
 
 import Restaurants from '../Restaurants/Restaurants';
 import Restaurant from '../Restaurant/Restaurant';
 import Location from '../Location/Location';
+import Webview from '../Webview/Webview';
+import Header from '../Header/Header';
 import { AppProvider } from '../Context/AppProvider';
 import { GRAPHQL_API_URL } from '../../utils/constants';
 
@@ -39,9 +41,30 @@ const client = new ApolloClient({
 
 const AppStackNavigator = createStackNavigator(
   {
-    Restaurants,
-    Restaurant,
-    Location
+    Restaurants: {
+      screen: Restaurants,
+      navigationOptions: {
+        header: Header
+      }
+    },
+    Restaurant: {
+      screen: Restaurant,
+      navigationOptions: {
+        headerTitle: 'Details'
+      }
+    },
+    Location: {
+      screen: Location, 
+      navigationOptions: {
+        headerTitle: 'Select Location'
+      }
+    },
+    Webview: {
+      screen: Webview,
+      navigationOptions: {
+        headerTitle: 'Website'
+      }
+    }
   },
   {
     initialRouteName: 'Restaurants',

@@ -9,6 +9,11 @@ import {
 } from 'react-native';
 import { Rating, Icon } from 'react-native-elements';
 
+import {
+  referencesToString,
+  roundTo1Decimal
+} from '../../utils/utils';
+
 const { height, width } = Dimensions.get('window');
 const cardHeight = height - (Platform.OS === 'ios' ? 150 : 130);
 
@@ -17,10 +22,10 @@ const RestaurantCard = ({ item, height }) => (
     {'image' in item && <Image style={styles.image} source={{uri: item.image}} />}
     <View style={styles.infoContain}>
       {'title' in item && <Text style={styles.title}>{item.title}</Text>}
-      {'references' in item &&
+      {('references' in item) &&
         <View style={styles.detailContain}>
           <Icon name="star" color="#39f" size={20} />
-          <Text style={styles.feature}>Featured in Discover LA, {item.references[0].siteName}</Text>
+          <Text style={styles.feature}>{`Featured in ${referencesToString(item.references)}`}</Text>
         </View>
       }
       {'address' in item &&
@@ -34,7 +39,7 @@ const RestaurantCard = ({ item, height }) => (
         {'distance' in item &&
           <View style={styles.detail}>
             <Icon name="directions-walk" color="#067" size={22} style={styles.distanceIcon} />
-            <Text style={styles.distance}>{item.distance} mi</Text>
+            <Text style={styles.distance}>{roundTo1Decimal(item.distance)} mi</Text>
           </View>
         }
         {'rating' in item &&

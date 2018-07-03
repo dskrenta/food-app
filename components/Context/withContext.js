@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AppContext from './AppProvider';
+import { AppContext } from './AppProvider';
 
-export function withContext(WrappedComponent) {
+export default function withContext(WrappedComponent) {
   return (props) => (
     <AppContext.Consumer>
       {(context) => (

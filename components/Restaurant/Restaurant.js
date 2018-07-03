@@ -5,98 +5,81 @@ import {
   ScrollView, 
   StyleSheet, 
   Image, 
-  Dimensions 
+  Dimensions,
+  TouchableHighlight
 } from 'react-native';
 import { Icon, Rating } from 'react-native-elements';
 import CarouselPager from 'react-native-carousel-pager';
 
-const sampleRestaurant = {
-  image: 'http://www.thedanimaleats.com/wp-content/uploads/2016/02/%C3%86-TDE-San-Shi-Go-1-768x512.jpg',
-  title: 'San Shi Go',
-  address: '205 Main St, Newport Beach',
-  distance: 2.1,
-  rating: 4.7,
-  references: [{siteName: 'Zagat', quote: 'Best chirashi in Los Angeles'},{siteName: 'Discover LA'}],
-  status: 'Open Now',
-  description: 'San Shi Go, Casual Elegant Seafood cuisine.',
-  /*hours: String
-  hours_source: String*/
-  images: ['https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg','https://img.grouponcdn.com/deal/mbyUEW6TfTGgb28PJUor/fG-2048x1229/v1/c700x420.jpg']
-  /*lat: Float
-  lon: Float
-  opentable_url: String
-  opentable_id: String
-  open_closed: String
-  phone: String*/
-};
+import {
+  referencesToString,
+  roundTo1Decimal
+}  from '../../utils/utils';
 
 const { height, width } = Dimensions.get("window");
 
-class Restaurant extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  render() {
-    const { navigation } = this.props;
-    return (
-      <ScrollView style={styles.contain}>
-          <Text style={styles.title}>{sampleRestaurant.title}</Text>
-        <View style={styles.imagePager}>
-          <CarouselPager ref={ref => this.carousel = ref}>
-            {sampleRestaurant.images.map((imageUrl, index) => (
-              <Image key={index} source={{uri: imageUrl}} style={styles.image} />
-            ))}
-          </CarouselPager>
+const Restaurant = ({ navigation, navigation: { state: { params: { item: { 
+  title,
+  images,
+  references,
+  rating, 
+  address,
+  description,
+  distance,
+  url
+} } } } }) => (
+  <ScrollView style={styles.contain}>
+      <Text style={styles.title}>{title}</Text>
+    <View style={styles.imagePager}>
+      <CarouselPager ref={ref => this.carousel = ref}>
+        {images.map((imageUrl, index) => (
+          <Image key={index} source={{uri: imageUrl}} style={styles.image} />
+        ))}
+      </CarouselPager>
+    </View>
+    <View style={styles.mainRow}>
+      <View style={styles.detail}>
+        <Icon name="directions-walk" color="#067" containerStyle={styles.detailIcon} />
+        <Text style={styles.detailText}>{roundTo1Decimal(distance)}<Text style={styles.detailSpan}> mi</Text></Text>
+      </View>
+      <View style={styles.detail}>
+        <Text style={styles.detailText}>{rating} / 5</Text>
+        <Rating
+          imageSize={20}
+          readonly
+          startingValue={rating}
+        />
+      </View>
+      <TouchableHighlight onPress={() => navigation.navigate('Webview', { url })}>
+        <View style={styles.detail}>
+          <Icon name="language" color="#067" size={27} containerStyle={styles.detailIcon} />
+          <Text style={styles.linkText}>Website</Text>
         </View>
-        <View style={styles.mainRow}>
-          <View style={styles.detail}>
-            <Icon name="directions-walk" color="#067" containerStyle={styles.detailIcon} />
-            <Text style={styles.detailText}>{sampleRestaurant.distance}<Text style={styles.detailSpan}> mi</Text></Text>
-          </View>
-          <View style={styles.detail}>
-            <Text style={styles.detailText}>{sampleRestaurant.rating} / 5</Text>
-            <Rating
-              imageSize={20}
-              readonly
-              startingValue={sampleRestaurant.rating}
-            />
-          </View>
-          <View style={styles.detail}>
-            <Icon name="language" color="#067" size={27} containerStyle={styles.detailIcon} />
-            <Text style={styles.linkText}>Website</Text>
-          </View>
+      </TouchableHighlight>
+    </View>
+    <View style={styles.infoHeader}>
+      <View style={styles.row}>
+        <Icon name="grade" color="#39f" containerStyle={styles.rowIcon} />
+        <Text style={styles.rowText}>{`Featured in ${referencesToString(references)}`}</Text>
+      </View>
+      {/*sampleRestaurant.references.map((item, index) => ('quote' in item &&
+        <View key={index} style={styles.row}>
+          <Icon name="format-quote" color="#39f" containerStyle={styles.rowIcon} />
+          <Text style={styles.rowText}>{item.quote}<Text style={styles.quoteAuthor}> - {item.siteName}</Text></Text>
         </View>
-        <View style={styles.infoHeader}>
-          <View style={styles.row}>
-            <Icon name="grade" color="#39f" containerStyle={styles.rowIcon} />
-            <Text style={styles.rowText}>
-              Featured in{sampleRestaurant.references.map((item, index) => (
-                <Text key={index}>{index > 0 && ","} {item.siteName}</Text>
-              ))}
-            </Text>
-          </View>
-          {sampleRestaurant.references.map((item, index) => ('quote' in item &&
-            <View key={index} style={styles.row}>
-              <Icon name="format-quote" color="#39f" containerStyle={styles.rowIcon} />
-              <Text style={styles.rowText}>{item.quote}<Text style={styles.quoteAuthor}> - {item.siteName}</Text></Text>
-            </View>
-          ))}
-          <View style={styles.row}>
-            <Icon name="info-outline" color="#067" containerStyle={styles.rowIcon} />
-            <Text style={styles.rowText}>{sampleRestaurant.description}</Text>
-          </View>
-          <View style={styles.row}>
-            <Icon name="location-on" color="#067" containerStyle={styles.rowIcon} />
-            <Text style={styles.rowText}>{sampleRestaurant.address}</Text>
-          </View>
-          {/*<Text style={[styles.status, sampleRestaurant.status === 'Open Now' && {color: 'green'}]}>{sampleRestaurant.status}</Text>*/}
-        </View>
-      </ScrollView>
-    );
-  }
-}
+      ))*/}
+      <View style={styles.row}>
+        <Icon name="info-outline" color="#067" containerStyle={styles.rowIcon} />
+        <Text style={styles.rowText}>{description}</Text>
+      </View>
+      <View style={styles.row}>
+        <Icon name="location-on" color="#067" containerStyle={styles.rowIcon} />
+        <Text style={styles.rowText}>{address}</Text>
+      </View>
+      {/*<Text style={[styles.status, sampleRestaurant.status === 'Open Now' && {color: 'green'}]}>{sampleRestaurant.status}</Text>*/}
+    </View>
+  </ScrollView>
+);
 
 const styles = StyleSheet.create({
   contain: {
@@ -178,9 +161,5 @@ const styles = StyleSheet.create({
     color: '#999'
   }
 });
-
-Restaurant.navigationOptions = {
-  headerTitle: 'Details'
-}
 
 export default Restaurant;
